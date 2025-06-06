@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pedro e Ianara</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Montserrat&display=swap');
+
+  body {
+    background: #fff0f0;
+    color: #8b0000;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  header {
+    margin-top: 40px;
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #b22222;
+  }
+
+  main {
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .message {
+    margin: 20px 0 40px 0;
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+  .photos {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .photos img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(139,0,0,0.3);
+  }
+
+  .contador {
+    background: #ffe6e6;
+    border-radius: 12px;
+    padding: 15px 25px;
+    box-shadow: 0 1px 5px rgba(139,0,0,0.2);
+    font-size: 1rem;
+    color: #7a0000;
+    font-weight: 600;
+    font-family: monospace;
+  }
+
+  footer {
+    margin: 40px 0 20px 0;
+    font-size: 0.85rem;
+    color: #b22222;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header>O começo da nossa história</header>
+
+<main>
+  <div class="message">
+    Meu amor, obrigada por me fazer tão feliz e me proporcionar tantos momentos incríveis, cada segundo ao seu lado é único e muito especial, mal posso esperar por tudo o que ainda vamos viver juntos, a vida fica mais colorida perto de você, nós formamos um casal e tanto ❤️❤️❤️❤️❤️.
+  </div>
+
+  <div class="photos">
+    <!-- Fotos aqui, substitua src pelas URLs das fotos reais -->
+    <img src= "1000064056.jpg" alt="Foto 1" />
+    <img src= "1000067819.jpg" alt="Foto 2" />
+    <img src= "1000072492.jpg" alt="Foto 3" />
+  </div>
+
+  <div class="message">
+    Compartilhando momentos há:
+  </div>
+
+  <div class="contador" id="contador">
+    Carregando tempo juntos...
+  </div>
+</main>
+
+<footer>
+  Com amor, Ianara :)
+</footer>
+
+<script>
+  const dataInicio = new Date('2025-04-24T00:00:00');
+
+  function atualizarContador() {
+    const agora = new Date();
+
+    // Calcular a diferença total em segundos
+    let diff = Math.floor((agora - dataInicio) / 1000);
+
+    // Calcular anos, meses, dias, horas, minutos, segundos
+    // Para simplicidade e delicadeza, vamos calcular aproximado com meses de 30 dias, anos de 365 dias
+    const anos = Math.floor(diff / (365 * 24 * 3600));
+    diff -= anos * 365 * 24 * 3600;
+
+    const meses = Math.floor(diff / (30 * 24 * 3600));
+    diff -= meses * 30 * 24 * 3600;
+
+    const dias = Math.floor(diff / (24 * 3600));
+    diff -= dias * 24 * 3600;
+
+    const horas = Math.floor(diff / 3600);
+    diff -= horas * 3600;
+
+    const minutos = Math.floor(diff / 60);
+    diff -= minutos * 60;
+
+    const segundos = diff;
+
+    const texto = `${anos} ano${anos !== 1 ? 's' : ''}, ${meses} mês${meses !== 1 ? 'es' : ''}, ${dias} dia${dias !== 1 ? 's' : ''}, ${horas}h ${minutos}m ${segundos}s`;
+    document.getElementById('contador').textContent = texto;
+  }
+
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
+</script>
+
+</body>
+</html>
